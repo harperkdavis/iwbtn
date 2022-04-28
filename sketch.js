@@ -358,6 +358,11 @@ function switchLevel(x, y, cache = true, px, py) {
     loadMap(x, y);
     map = cachedMaps[y * 7 + x];
     
+    for (let tile of map) {
+      if (tile.mt.data.type == TILE_TYPES.TURRET || tile.mt.data.type == TILE_TYPES.ROCKET_TURRET) {
+        tile.local.lastShot = 0;
+      }
+    }
     
   } else {
     loadMap(x, y);
