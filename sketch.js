@@ -1204,7 +1204,7 @@ function runTick(deltaTime, mPrev, mKeys, mapState, mSave) {
             newSave.savePoint = tile.mt.data.prop.id;
             newSave.saveMapX = mapX;
             newSave.saveMapY = mapY;
-            if (tile.local.lastSave + 40 < mPrev['time']) {
+            if ((tile.local.lastSave == undefined ? 0 : tile.local.lastSave) + 40 < mPrev['time']) {
               sfx[2].pause();
               sfx[2].currentTime = 0;
               sfx[2].play();
